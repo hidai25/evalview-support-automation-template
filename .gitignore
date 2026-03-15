@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+.evalview/history.jsonl
+.evalview/state.json
+.evalview/results/

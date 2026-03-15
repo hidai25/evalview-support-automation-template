@@ -1,0 +1,15 @@
+name: refund-flow
+description: Refund flow should verify the order and issue the refund without unnecessary escalation.
+input:
+  query: "I need a refund for order 4812."
+expected:
+  tools:
+    - lookup_order
+    - check_refund_policy
+    - issue_refund
+  output:
+    contains:
+      - "4812"
+      - refund
+thresholds:
+  min_score: 70

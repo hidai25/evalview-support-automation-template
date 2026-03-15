@@ -1,0 +1,181 @@
+{
+  "metadata": {
+    "test_name": "vip-outage",
+    "blessed_at": "2026-03-14T13:14:59.324392",
+    "blessed_by": "user",
+    "source_result_file": null,
+    "score": 85.0,
+    "notes": null,
+    "version": 1,
+    "model_id": null,
+    "model_provider": null
+  },
+  "trace": {
+    "session_id": "session-1773486884",
+    "start_time": "2026-03-14T13:14:44.829826",
+    "end_time": "2026-03-14T13:14:44.897336",
+    "steps": [
+      {
+        "step_id": "step-0",
+        "step_name": "Step 1",
+        "tool_name": "lookup_account",
+        "parameters": {
+          "customer": "vip-outage"
+        },
+        "output": "VIP enterprise account found",
+        "success": true,
+        "error": null,
+        "metrics": {
+          "latency": 0.0,
+          "cost": 0.0,
+          "tokens": null
+        },
+        "turn_index": null,
+        "turn_query": null
+      },
+      {
+        "step_id": "step-1",
+        "step_name": "Step 2",
+        "tool_name": "check_service_status",
+        "parameters": {
+          "service": "dashboards"
+        },
+        "output": "Known outage in us-east-1",
+        "success": true,
+        "error": null,
+        "metrics": {
+          "latency": 0.0,
+          "cost": 0.0,
+          "tokens": null
+        },
+        "turn_index": null,
+        "turn_query": null
+      },
+      {
+        "step_id": "step-2",
+        "step_name": "Step 3",
+        "tool_name": "escalate_to_human",
+        "parameters": {
+          "priority": "critical"
+        },
+        "output": "Paged on-call support",
+        "success": true,
+        "error": null,
+        "metrics": {
+          "latency": 0.0,
+          "cost": 0.0,
+          "tokens": null
+        },
+        "turn_index": null,
+        "turn_query": null
+      }
+    ],
+    "final_output": "I confirmed a current dashboard outage affecting your region and escalated this to the on-call team with VIP priority.",
+    "metrics": {
+      "total_cost": 0.0,
+      "total_latency": 67.51,
+      "total_tokens": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "cached_tokens": 0
+      }
+    },
+    "trace_context": {
+      "trace_id": "9f2bef33a07d48ec",
+      "root_span_id": "9374d9b8",
+      "spans": [
+        {
+          "span_id": "9374d9b8",
+          "parent_span_id": null,
+          "trace_id": "9f2bef33a07d48ec",
+          "kind": "agent",
+          "name": "HTTP Agent",
+          "start_time": "2026-03-14T13:14:44.829855",
+          "end_time": "2026-03-14T13:14:44.897227",
+          "duration_ms": 67.372,
+          "status": "ok",
+          "error_message": null,
+          "llm": null,
+          "tool": null,
+          "cost": 0.0
+        },
+        {
+          "span_id": "141f0652",
+          "parent_span_id": null,
+          "trace_id": "9f2bef33a07d48ec",
+          "kind": "tool",
+          "name": "lookup_account",
+          "start_time": "2026-03-14T13:14:44.897281",
+          "end_time": "2026-03-14T13:14:44.897281",
+          "duration_ms": 0.0,
+          "status": "ok",
+          "error_message": null,
+          "llm": null,
+          "tool": {
+            "tool_name": "lookup_account",
+            "parameters": {
+              "customer": "vip-outage"
+            },
+            "result": "VIP enterprise account found"
+          },
+          "cost": 0.0
+        },
+        {
+          "span_id": "ef5bbbff",
+          "parent_span_id": null,
+          "trace_id": "9f2bef33a07d48ec",
+          "kind": "tool",
+          "name": "check_service_status",
+          "start_time": "2026-03-14T13:14:44.897319",
+          "end_time": "2026-03-14T13:14:44.897319",
+          "duration_ms": 0.0,
+          "status": "ok",
+          "error_message": null,
+          "llm": null,
+          "tool": {
+            "tool_name": "check_service_status",
+            "parameters": {
+              "service": "dashboards"
+            },
+            "result": "Known outage in us-east-1"
+          },
+          "cost": 0.0
+        },
+        {
+          "span_id": "0ce09bc8",
+          "parent_span_id": null,
+          "trace_id": "9f2bef33a07d48ec",
+          "kind": "tool",
+          "name": "escalate_to_human",
+          "start_time": "2026-03-14T13:14:44.897331",
+          "end_time": "2026-03-14T13:14:44.897331",
+          "duration_ms": 0.0,
+          "status": "ok",
+          "error_message": null,
+          "llm": null,
+          "tool": {
+            "tool_name": "escalate_to_human",
+            "parameters": {
+              "priority": "critical"
+            },
+            "result": "Paged on-call support"
+          },
+          "cost": 0.0
+        }
+      ],
+      "start_time": "2026-03-14T13:14:44.829855",
+      "end_time": "2026-03-14T13:14:44.897398",
+      "total_llm_calls": 0,
+      "total_tool_calls": 3,
+      "total_cost": 0.0
+    },
+    "model_id": null,
+    "model_provider": null
+  },
+  "tool_sequence": [
+    "lookup_account",
+    "check_service_status",
+    "escalate_to_human"
+  ],
+  "output_hash": "41ab6002"
+}

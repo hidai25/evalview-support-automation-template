@@ -1,0 +1,183 @@
+{
+  "metadata": {
+    "test_name": "refund-flow",
+    "blessed_at": "2026-03-14T13:14:59.326390",
+    "blessed_by": "user",
+    "source_result_file": null,
+    "score": 85.0,
+    "notes": null,
+    "version": 1,
+    "model_id": null,
+    "model_provider": null
+  },
+  "trace": {
+    "session_id": "session-1773486889",
+    "start_time": "2026-03-14T13:14:49.985364",
+    "end_time": "2026-03-14T13:14:50.000301",
+    "steps": [
+      {
+        "step_id": "step-0",
+        "step_name": "Step 1",
+        "tool_name": "lookup_order",
+        "parameters": {
+          "order_id": "4812"
+        },
+        "output": "Order 4812, delivered 12 days ago",
+        "success": true,
+        "error": null,
+        "metrics": {
+          "latency": 0.0,
+          "cost": 0.0,
+          "tokens": null
+        },
+        "turn_index": null,
+        "turn_query": null
+      },
+      {
+        "step_id": "step-1",
+        "step_name": "Step 2",
+        "tool_name": "check_refund_policy",
+        "parameters": {
+          "days_since_delivery": 12
+        },
+        "output": "Within 30-day refund window",
+        "success": true,
+        "error": null,
+        "metrics": {
+          "latency": 0.0,
+          "cost": 0.0,
+          "tokens": null
+        },
+        "turn_index": null,
+        "turn_query": null
+      },
+      {
+        "step_id": "step-2",
+        "step_name": "Step 3",
+        "tool_name": "issue_refund",
+        "parameters": {
+          "order_id": "4812",
+          "amount": 84.99
+        },
+        "output": "Refund issued to original payment method",
+        "success": true,
+        "error": null,
+        "metrics": {
+          "latency": 0.0,
+          "cost": 0.0,
+          "tokens": null
+        },
+        "turn_index": null,
+        "turn_query": null
+      }
+    ],
+    "final_output": "I found order 4812. It is within policy, and I have issued your refund for $84.99.",
+    "metrics": {
+      "total_cost": 0.0,
+      "total_latency": 14.937000000000001,
+      "total_tokens": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "cached_tokens": 0
+      }
+    },
+    "trace_context": {
+      "trace_id": "b109818988dc4f50",
+      "root_span_id": "fda9e837",
+      "spans": [
+        {
+          "span_id": "fda9e837",
+          "parent_span_id": null,
+          "trace_id": "b109818988dc4f50",
+          "kind": "agent",
+          "name": "HTTP Agent",
+          "start_time": "2026-03-14T13:14:49.985475",
+          "end_time": "2026-03-14T13:14:50.000186",
+          "duration_ms": 14.711,
+          "status": "ok",
+          "error_message": null,
+          "llm": null,
+          "tool": null,
+          "cost": 0.0
+        },
+        {
+          "span_id": "66e003f2",
+          "parent_span_id": null,
+          "trace_id": "b109818988dc4f50",
+          "kind": "tool",
+          "name": "lookup_order",
+          "start_time": "2026-03-14T13:14:50.000229",
+          "end_time": "2026-03-14T13:14:50.000229",
+          "duration_ms": 0.0,
+          "status": "ok",
+          "error_message": null,
+          "llm": null,
+          "tool": {
+            "tool_name": "lookup_order",
+            "parameters": {
+              "order_id": "4812"
+            },
+            "result": "Order 4812, delivered 12 days ago"
+          },
+          "cost": 0.0
+        },
+        {
+          "span_id": "eab48dcf",
+          "parent_span_id": null,
+          "trace_id": "b109818988dc4f50",
+          "kind": "tool",
+          "name": "check_refund_policy",
+          "start_time": "2026-03-14T13:14:50.000280",
+          "end_time": "2026-03-14T13:14:50.000280",
+          "duration_ms": 0.0,
+          "status": "ok",
+          "error_message": null,
+          "llm": null,
+          "tool": {
+            "tool_name": "check_refund_policy",
+            "parameters": {
+              "days_since_delivery": 12
+            },
+            "result": "Within 30-day refund window"
+          },
+          "cost": 0.0
+        },
+        {
+          "span_id": "72402ee1",
+          "parent_span_id": null,
+          "trace_id": "b109818988dc4f50",
+          "kind": "tool",
+          "name": "issue_refund",
+          "start_time": "2026-03-14T13:14:50.000294",
+          "end_time": "2026-03-14T13:14:50.000294",
+          "duration_ms": 0.0,
+          "status": "ok",
+          "error_message": null,
+          "llm": null,
+          "tool": {
+            "tool_name": "issue_refund",
+            "parameters": {
+              "order_id": "4812",
+              "amount": 84.99
+            },
+            "result": "Refund issued to original payment method"
+          },
+          "cost": 0.0
+        }
+      ],
+      "start_time": "2026-03-14T13:14:49.985475",
+      "end_time": "2026-03-14T13:14:50.000396",
+      "total_llm_calls": 0,
+      "total_tool_calls": 3,
+      "total_cost": 0.0
+    },
+    "model_id": null,
+    "model_provider": null
+  },
+  "tool_sequence": [
+    "lookup_order",
+    "check_refund_policy",
+    "issue_refund"
+  ],
+  "output_hash": "204e2b96"
+}

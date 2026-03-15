@@ -1,0 +1,141 @@
+{
+  "metadata": {
+    "test_name": "billing-dispute",
+    "blessed_at": "2026-03-14T13:14:59.328326",
+    "blessed_by": "user",
+    "source_result_file": null,
+    "score": 85.0,
+    "notes": null,
+    "version": 1,
+    "model_id": null,
+    "model_provider": null
+  },
+  "trace": {
+    "session_id": "session-1773486894",
+    "start_time": "2026-03-14T13:14:54.488508",
+    "end_time": "2026-03-14T13:14:54.502084",
+    "steps": [
+      {
+        "step_id": "step-0",
+        "step_name": "Step 1",
+        "tool_name": "lookup_account",
+        "parameters": {
+          "customer": "billing-dispute"
+        },
+        "output": "Annual plan account found",
+        "success": true,
+        "error": null,
+        "metrics": {
+          "latency": 0.0,
+          "cost": 0.0,
+          "tokens": null
+        },
+        "turn_index": null,
+        "turn_query": null
+      },
+      {
+        "step_id": "step-1",
+        "step_name": "Step 2",
+        "tool_name": "check_billing_history",
+        "parameters": {
+          "account_id": "acct_8821"
+        },
+        "output": "Renewal charge for $129 on March 3 with auto-renewal enabled",
+        "success": true,
+        "error": null,
+        "metrics": {
+          "latency": 0.0,
+          "cost": 0.0,
+          "tokens": null
+        },
+        "turn_index": null,
+        "turn_query": null
+      }
+    ],
+    "final_output": "That $129 charge is your annual renewal from March 3. Auto-renewal was enabled on the account.",
+    "metrics": {
+      "total_cost": 0.0,
+      "total_latency": 13.575999999999999,
+      "total_tokens": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "cached_tokens": 0
+      }
+    },
+    "trace_context": {
+      "trace_id": "d28cf216c2cb4d30",
+      "root_span_id": "02e51e67",
+      "spans": [
+        {
+          "span_id": "02e51e67",
+          "parent_span_id": null,
+          "trace_id": "d28cf216c2cb4d30",
+          "kind": "agent",
+          "name": "HTTP Agent",
+          "start_time": "2026-03-14T13:14:54.488592",
+          "end_time": "2026-03-14T13:14:54.501982",
+          "duration_ms": 13.39,
+          "status": "ok",
+          "error_message": null,
+          "llm": null,
+          "tool": null,
+          "cost": 0.0
+        },
+        {
+          "span_id": "58358124",
+          "parent_span_id": null,
+          "trace_id": "d28cf216c2cb4d30",
+          "kind": "tool",
+          "name": "lookup_account",
+          "start_time": "2026-03-14T13:14:54.502026",
+          "end_time": "2026-03-14T13:14:54.502026",
+          "duration_ms": 0.0,
+          "status": "ok",
+          "error_message": null,
+          "llm": null,
+          "tool": {
+            "tool_name": "lookup_account",
+            "parameters": {
+              "customer": "billing-dispute"
+            },
+            "result": "Annual plan account found"
+          },
+          "cost": 0.0
+        },
+        {
+          "span_id": "1d3d6c30",
+          "parent_span_id": null,
+          "trace_id": "d28cf216c2cb4d30",
+          "kind": "tool",
+          "name": "check_billing_history",
+          "start_time": "2026-03-14T13:14:54.502074",
+          "end_time": "2026-03-14T13:14:54.502074",
+          "duration_ms": 0.0,
+          "status": "ok",
+          "error_message": null,
+          "llm": null,
+          "tool": {
+            "tool_name": "check_billing_history",
+            "parameters": {
+              "account_id": "acct_8821"
+            },
+            "result": "Renewal charge for $129 on March 3 with auto-renewal enabled"
+          },
+          "cost": 0.0
+        }
+      ],
+      "start_time": "2026-03-14T13:14:54.488592",
+      "end_time": "2026-03-14T13:14:54.502157",
+      "total_llm_calls": 0,
+      "total_tool_calls": 2,
+      "total_cost": 0.0
+    },
+    "model_id": null,
+    "model_provider": null
+  },
+  "tool_sequence": [
+    "lookup_account",
+    "check_billing_history"
+  ],
+  "output_hash": "a9e3b940"
+}

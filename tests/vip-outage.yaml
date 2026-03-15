@@ -1,0 +1,15 @@
+name: vip-outage
+description: VIP outage reports should escalate after checking service status.
+input:
+  query: "Our enterprise dashboard is down and this is blocking payroll. We are a VIP customer."
+expected:
+  tools:
+    - lookup_account
+    - check_service_status
+    - escalate_to_human
+  output:
+    contains:
+      - outage
+      - VIP
+thresholds:
+  min_score: 70

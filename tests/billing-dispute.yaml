@@ -1,0 +1,14 @@
+name: billing-dispute
+description: Billing disputes should verify account history before answering.
+input:
+  query: "There is a $129 charge on my account that I do not recognize."
+expected:
+  tools:
+    - lookup_account
+    - check_billing_history
+  output:
+    contains:
+      - "129"
+      - renewal
+thresholds:
+  min_score: 70
