@@ -1,4 +1,6 @@
 adapter: http
-endpoint: http://127.0.0.1:8000/execute
-timeout: 15.0
+endpoint: http://localhost:8000/execute
+timeout: 30.0
 allow_private_urls: true
+model:
+  name: gpt-4o-mini

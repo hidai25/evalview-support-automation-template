@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "test_name": "Capability Overview",
+    "blessed_at": "2026-03-15T17:23:54.990701",
+    "blessed_by": "user",
+    "source_result_file": null,
+    "score": 85.0,
+    "notes": null,
+    "version": 1,
+    "model_id": "mock-support-agent",
+    "model_provider": null
+  },
+  "trace": {
+    "session_id": "session-1773588229",
+    "start_time": "2026-03-15T17:23:49.745081",
+    "end_time": "2026-03-15T17:23:49.805874",
+    "steps": [],
+    "final_output": "Please describe the support issue you need help with.",
+    "metrics": {
+      "total_cost": 0.0,
+      "total_latency": 60.793,
+      "total_tokens": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "cached_tokens": 0
+      }
+    },
+    "trace_context": {
+      "trace_id": "fcdb8fe51eec4f40",
+      "root_span_id": "96915af1",
+      "spans": [
+        {
+          "span_id": "96915af1",
+          "parent_span_id": null,
+          "trace_id": "fcdb8fe51eec4f40",
+          "kind": "agent",
+          "name": "HTTP Agent",
+          "start_time": "2026-03-15T17:23:49.745114",
+          "end_time": "2026-03-15T17:23:49.805840",
+          "duration_ms": 60.726,
+          "status": "ok",
+          "error_message": null,
+          "llm": null,
+          "tool": null,
+          "cost": 0.0
+        }
+      ],
+      "start_time": "2026-03-15T17:23:49.745114",
+      "end_time": "2026-03-15T17:23:49.805928",
+      "total_llm_calls": 0,
+      "total_tool_calls": 0,
+      "total_cost": 0.0
+    },
+    "model_id": "mock-support-agent",
+    "model_provider": null
+  },
+  "tool_sequence": [],
+  "output_hash": "0249e286"
+}
