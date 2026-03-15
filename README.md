@@ -34,6 +34,12 @@ source .venv/bin/activate
 pip install -r requirements.txt
 pip install evalview
 make run
+```
+
+Keep that terminal running. In a second terminal:
+
+```bash
+source .venv/bin/activate
 make check
 ```
 
@@ -43,6 +49,12 @@ Real LLM-backed path:
 cp .env.example .env
 export OPENAI_API_KEY=your-key
 make llm
+```
+
+Keep that terminal running. In a second terminal:
+
+```bash
+source .venv/bin/activate
 evalview snapshot tests
 evalview check tests
 ```
@@ -97,7 +109,7 @@ pip install evalview
 make run
 ```
 
-In a second terminal:
+Keep that terminal running. In a second terminal:
 
 ```bash
 source .venv/bin/activate

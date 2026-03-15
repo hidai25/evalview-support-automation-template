@@ -4,4 +4,5 @@ __pycache__/
 *.pyc
 .evalview/history.jsonl
 .evalview/state.json
+.evalview/latest-check.html
 .evalview/results/
